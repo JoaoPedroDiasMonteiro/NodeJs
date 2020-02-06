@@ -11,17 +11,8 @@ requireDir('./src/models')
 
 const Product = mongoose.model('Product')
 
-
-// primeira rota
-app.get('/', (req, res) => {
-    Product.create({
-        tittle: 'Geladeira Gamer',
-        description: 'Jogue seus jogos em baixíssima temperatura',
-        url: 'https://google.com/'
-    })
-
-    return res.send('Olá 😎')
-})
+// Rotas
+app.use('/api', require('./src/routes'))
 
 app.listen(8080)
 
